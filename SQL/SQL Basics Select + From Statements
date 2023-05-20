@@ -1,0 +1,48 @@
+
+SELECT *
+FROM [EmployeeDemographics]
+GO
+
+SELECT FirstName, LastName
+FROM [EmployeeDemographics]
+GO
+
+SELECT FirstName, LastName
+FROM [EmployeeDemographics]
+GO
+
+SELECT TOP 5 *
+FROM [EmployeeDemographics]
+GO
+
+SELECT DISTINCT (EmployeeID)
+FROM [EmployeeDemographics]
+GO
+
+SELECT DISTINCT (Gender)
+FROM [EmployeeDemographics]
+GO
+
+SELECT COUNT(LastName) AS LastNameCount
+FROM [EmployeeDemographics]
+GO
+
+SELECT *
+FROM [EmployeeSalary]
+GO
+
+SELECT MAX(Salary)
+FROM [EmployeeSalary]
+GO
+
+SELECT MIN(Salary)
+FROM [EmployeeSalary]
+GO
+
+SELECT AVG(Salary)
+FROM [EmployeeSalary]
+GO
+
+SELECT *
+FROM [SQLTutorial].[dbo].[EmployeeSalary]
+GO
