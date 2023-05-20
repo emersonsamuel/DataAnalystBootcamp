@@ -1,0 +1,69 @@
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE FirstName = 'Jim'
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE FirstName <> 'Jim'
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE Age >= 30
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE Age <= 32
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE Age <= 32 AND Gender = 'Male'
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE Age <= 32  OR Gender = 'Male'
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE LastName LIKE 'S%'
+GO
+
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE LastName LIKE '%S%'
+GO
+
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE LastName LIKE '%S%c%ott%'
+GO
+
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE LastName LIKE '%S%c%ott%'
+GO
+
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE FirstName is NULL
+
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE FirstName is NOT NULL
+
+
+SELECT *
+FROM [EmployeeDemographics]
+WHERE FirstName IN ( 'Jim','Michael')
+GO
