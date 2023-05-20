@@ -1,0 +1,44 @@
+
+SELECT *
+FROM [EmployeeDemographics]
+GO
+
+SELECT DISTINCT(Gender)
+FROM [EmployeeDemographics]
+GO
+
+SELECT Gender
+FROM [EmployeeDemographics]
+GROUP BY Gender
+GO
+
+SELECT Gender, COUNT(*)
+FROM [EmployeeDemographics]
+GROUP BY Gender
+GO
+
+SELECT Gender, Age, COUNT(*)
+FROM [EmployeeDemographics]
+GROUP BY Gender, Age
+GO
+
+SELECT Gender, COUNT(Gender) AS CountGender
+FROM [EmployeeDemographics]
+WHERE Age > 31
+GROUP BY Gender
+ORDER BY CountGender 
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+ORDER BY Age --DESC
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+ORDER BY Age, Gender --DESC
+GO
+
+SELECT *
+FROM [EmployeeDemographics]
+ORDER BY 4 DESC, 5 DESC
