@@ -1,4 +1,4 @@
-# DataAnalystBootcamp
+# Data Analyst Bootcamp
 
 Introduction:
 Welcome to the Data Analyst Bootcamp from Alex the Analyst YouTube Channel! This bootcamp aims to provide you with a comprehensive foundation in key data analysis tools and techniques.
