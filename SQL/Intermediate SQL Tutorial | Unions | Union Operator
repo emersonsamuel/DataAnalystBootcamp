@@ -1,0 +1,52 @@
+Create Table WareHouseEmployeeDemographics 
+(EmployeeID int, 
+FirstName varchar(50), 
+LastName varchar(50), 
+Age int, 
+Gender varchar(50)
+)
+GO
+
+Insert into WareHouseEmployeeDemographics VALUES
+(1013, 'Darryl', 'Philbin', NULL, 'Male'),
+(1050, 'Roy', 'Anderson', 31, 'Male'),
+(1051, 'Hidetoshi', 'Hasagawa', 40, 'Male'),
+(1052, 'Val', 'Johnson', 31, 'Female')
+GO
+
+SELECT * 
+FROM EmployeeDemographics
+GO
+
+SELECT * 
+FROM WareHouseEmployeeDemographics
+GO
+
+SELECT *
+FROM SQLTutorial.dbo.EmployeeDemographics AS ED
+FULL OUTER JOIN SQLTutorial.dbo.WareHouseEmployeeDemographics AS WHED
+	ON ED.EmployeeID = WHED.EmployeeID
+GO
+
+SELECT * 
+FROM EmployeeDemographics
+UNION
+SELECT * 
+FROM WareHouseEmployeeDemographics
+GO
+
+SELECT * 
+FROM EmployeeDemographics
+UNION ALL
+SELECT * 
+FROM WareHouseEmployeeDemographics
+ORDER BY EmployeeID
+GO
+
+SELECT  EmployeeID, FirstName, Age
+FROM EmployeeDemographics
+UNION
+SELECT EmployeeID, JobTitle, Salary
+FROM EmployeeSalary 
+ORDER BY EmployeeID
+GO
