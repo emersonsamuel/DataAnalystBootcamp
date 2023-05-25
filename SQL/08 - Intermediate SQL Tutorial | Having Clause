@@ -1,0 +1,47 @@
+/*
+Today's topic: Having Clause
+*/
+
+
+SELECT *
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+GO
+
+SELECT JobTitle, COUNT(JobTitle)
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+WHERE COUNT(JobTitle) > 1
+GROUP BY JobTitle
+GO
+
+/*Msg 147, Level 15, State 1, Line 16
+An aggregate may not appear in the WHERE clause unless it is in a subquery contained in a HAVING clause or a select list, and the column being aggregated is an outer reference.*/
+
+
+SELECT JobTitle, COUNT(JobTitle)
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+GROUP BY JobTitle
+HAVING COUNT(JobTitle) > 1
+GO
+
+SELECT JobTitle, AVG(Salary)
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+GROUP BY JobTitle
+ORDER BY AVG(Salary)
+GO
+
+SELECT JobTitle, AVG(Salary)
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+GROUP BY JobTitle
+HAVING AVG(Salary) > 45000
+ORDER BY AVG(Salary)
+GO
