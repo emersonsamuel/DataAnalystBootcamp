@@ -3,7 +3,7 @@ GO
 
 Insert into EmployeeDemographics VALUES
 (1011, 'Ryan', 'Howard', 26, 'Male'),
-(NULL, 'Holy', 'Flax', NULL, NULL),
+(NULL, 'Holly', 'Flax', NULL, NULL),
 (1013, 'Darryl', 'Philbin', NUll, 'Male')
 GO
 
