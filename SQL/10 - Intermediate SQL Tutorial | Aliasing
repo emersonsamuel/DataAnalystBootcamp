@@ -1,0 +1,41 @@
+/*
+Today's Topic: Aliasing
+*/
+
+SELECT *
+FROM EmployeeDemographics
+GO
+
+SELECT FirstName AS Fname
+FROM EmployeeDemographics
+GO
+
+SELECT FirstName + ' ' + LastName AS FullName
+FROM EmployeeDemographics
+GO
+
+SELECT AVG(Age) AS AvgAge
+FROM EmployeeDemographics
+GO
+
+SELECT Demo.EmployeeID, Sal.Salary
+FROM EmployeeDemographics AS Demo
+JOIN EmployeeSalary AS Sal
+ ON Demo.EmployeeID = Sal.EmployeeID
+GO
+
+SELECT a.EmployeeID, a.FirstName, a.FirstName, b.JobTitle, c.Age
+FROM EmployeeDemographics a
+LEFT JOIN EmployeeSalary b
+ ON a.EmployeeID = b.EmployeeID
+LEFT JOIN WareHouseEmployeeDemographics c
+ ON a.EmployeeID = c.EmployeeID
+GO
+
+SELECT Demo.EmployeeID, Demo.FirstName, Demo.FirstName, Sal.JobTitle, Ware.Age
+FROM EmployeeDemographics Demo
+LEFT JOIN EmployeeSalary Sal
+ ON Demo.EmployeeID = Sal.EmployeeID
+LEFT JOIN WareHouseEmployeeDemographics Ware
+ ON Demo.EmployeeID = Ware.EmployeeID
+GO
