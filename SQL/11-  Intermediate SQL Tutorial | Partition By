@@ -1,0 +1,30 @@
+/*
+Today's Topic: Partition BY
+*/
+
+SELECT *
+FROM EmployeeDemographics
+GO
+
+SELECT *
+FROM EmployeeSalary
+GO
+
+SELECT FirstName, LastName, Gender, Salary
+, COUNT(Gender) OVER (PARTITION BY Gender) as TotalGender
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+
+SELECT FirstName, LastName, Gender, Salary, COUNT(Gender)
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+GROUP BY  FirstName, LastName, Gender, Salary
+
+
+SELECT Gender, COUNT(Gender)
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+GROUP BY  Gender
