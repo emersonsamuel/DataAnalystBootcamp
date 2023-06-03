@@ -1,0 +1,74 @@
+/*
+
+Today's Topic: Stored Procedures
+
+*/
+
+CREATE PROCEDURE TEST
+AS
+SELECT * 
+FROM EmployeeDemographics
+GO
+
+Exec TEST
+GO
+
+CREATE PROCEDURE Temp_Employee
+AS
+DROP TABLE IF EXISTS #temp_employee
+CREATE TABLE #temp_employee (
+JobTitle Varchar(100),
+EmployeesPerJob int,
+AvgAge int,
+AvgSalary int
+)
+
+INSERT INTO #temp_employee
+SELECT JobTitle, COUNT(JobTitle), Avg(Age), AVG(Salary)
+FROM EmployeeDemographics emp
+JOIN EmployeeSalary sal
+	ON emp.EmployeeID = sal.EmployeeID
+GROUP BY JobTitle
+
+select * from #temp_employee
+go
+
+
+EXEC Temp_Employee @JobTitle = 'Salesman'
+
+
+
+
+
+
+--Modifying the procedure by adding the @JobTitle parameter.
+
+
+USE [SQLTutorial]
+GO
+/****** Object:  StoredProcedure [dbo].[Temp_Employee]    Script Date: 03/06/2023 18:52:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[Temp_Employee]
+@JobTitle nvarchar (100)
+AS
+DROP TABLE IF EXISTS #temp_employee
+CREATE TABLE #temp_employee (
+JobTitle Varchar(100),
+EmployeesPerJob int,
+AvgAge int,
+AvgSalary int
+)
+
+INSERT INTO #temp_employee
+SELECT JobTitle, COUNT(JobTitle), Avg(Age), AVG(Salary)
+FROM EmployeeDemographics emp
+JOIN EmployeeSalary sal
+	ON emp.EmployeeID = sal.EmployeeID
+Where JobTitle = @JobTitle
+GROUP BY JobTitle
+
+select * from #temp_employee
